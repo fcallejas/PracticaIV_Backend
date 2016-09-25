@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Bienvenido a WordGeek - El blog para geeks{% endblock %}</title>
+</head>
+<body>
+    <header class="app-header">
+        <nav class="app-menu">
+            {% include 'includes/menu.html' %}
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {% block body %}{% endblock %}
+                <hr>
+                &copy; WordGeek. Todos los derechos reservados
+            </div>
+        </div>
+    </div>
+</body>
+</html>

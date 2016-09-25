@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1>Bienvenido a WordGeek!</h1>
+    <p>El blog para geeks</p>
+
+    {% if post_list|length > 0 %}
+        <h2>Últimos post publicados</h2>
+        {% for post in post_list %}
+            <a href="{% url 'post_detail' username=post.owner.username pk=post.pk %}">
+                <h3>{{ post.title }}</h3>
+                <img src="{{post.media_url}}" height="140">
+                <p>{{ post.intro }}</p>
+                <span>{{ post.created_at }}</span>
+            </a>
+        {% endfor %}
+    {% else %}
+        <h2>No hay ningún post publicado aún</h2>
+    {% endif %}
+{% endblock %}

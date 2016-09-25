@@ -1,0 +1,11 @@
+<a href="{% url 'post_home' %}">Inicio</a>
+|
+{% if user.is_authenticated %}
+    <a href="{% url 'post_list' user.username %}">Mis Post</a> |
+    <a href="{% url 'post_creation' %}">Crear Post</a> |
+    <a href="{% url 'user_logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'user_login' %}?next={{ request.path }}">Ingresar</a> |
+    <a href="{% url 'user_sign_up' %}">Registrarse</a>
+{% endif %}
+<hr>
